@@ -1,0 +1,40 @@
+@import "tailwindcss";
+body{
+    background-color: black;
+}
+/* ::-webkit-scrollbar{
+    display: none;
+} */
+ /* Hide scrollbar for Chrome, Safari and Edge */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for Firefox */
+.hide-scrollbar {
+  scrollbar-width: none;
+}
+
+/* Hide scrollbar for IE and old Edge */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+}
+
+@keyframes toastSlideIn {
+  0% {
+    transform: translate3d(20px, -10px, 0) scale(0.9);
+    opacity: 0;
+  }
+  60% {
+    transform: translate3d(0, 0, 0) scale(1.02);
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-toastSlideIn {
+  animation: toastSlideIn 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
