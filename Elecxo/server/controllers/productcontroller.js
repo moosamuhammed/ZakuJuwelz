@@ -21,7 +21,7 @@ const addcategory = async (req, res) => {
     }
 
     // const imageUrl = `${req.protocol}://${req.get('host')}/${req.file.path.replace(/\\/g, "/")}`;
-    const imageUrl = `${req.file.path.replace(/\\/g, "/")}`;
+    const imageUrl = `${req.protocol}://${domainName}/api/${req.file.path.replace(/\\/g, "/")}`;
 
     
 
@@ -189,7 +189,7 @@ const editproduct = async (req, res) => {
 
     let imageUrl;
     if (req.file) {
-      imageUrl = `${req.protocol}://${req.get('host')}/${req.file.path.replace(/\\/g, "/")}`;
+      imageUrl = `${req.protocol}://${domainName}/api/${req.file.path.replace(/\\/g, "/")}`;
     }
 
     if (name) product.name = name;
@@ -316,7 +316,7 @@ const editCategory = async (req, res) => {
     }
 
     if (req.file) {
-      const imageUrl = `${req.protocol}://${req.get("host")}/${req.file.path.replace(/\\/g, "/")}`;
+      const imageUrl = `${req.protocol}://${domainName}/api/${req.file.path.replace(/\\/g, "/")}`;
       category.image = imageUrl;
     } else if (req.body.image) {
       category.image = req.body.image;

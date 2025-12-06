@@ -17,7 +17,7 @@ function Category() {
         "http://13.62.225.195/api/product/catogary/add",
         formData
       );
-      console.log(response.data);
+      console.log("catt",response.data);
       alert(response.data.message);
 
       setImage(null);
