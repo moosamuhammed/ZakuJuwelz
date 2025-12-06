@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 
-const API_BASE = "http://localhost:4000/product";
+const API_BASE = "http://13.62.225.195/api/product";
 
 function EditCategory() {
   const { id } = useParams();

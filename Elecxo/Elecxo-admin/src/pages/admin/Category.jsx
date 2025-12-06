@@ -14,7 +14,7 @@ function Category() {
 
     try {
       const response = await axios.post(
-        "http://localhost:4000/product/catogary/add",
+        "http://13.62.225.195/api/product/catogary/add",
         formData
       );
       console.log(response.data);

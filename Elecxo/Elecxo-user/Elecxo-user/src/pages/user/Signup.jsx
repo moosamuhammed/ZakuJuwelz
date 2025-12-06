@@ -32,7 +32,7 @@ function Signup() {
     try {
       setLoading(true);
       const response = await axios.post(
-        "http://localhost:4000/auth/register",
+        "http://13.62.225.195/api/auth/register",
         { name, email, password }
       );
 

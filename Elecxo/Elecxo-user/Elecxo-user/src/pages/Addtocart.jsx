@@ -24,7 +24,7 @@ function AddToCart() {
 
       try {
         setError("");
-        const response = await axios.get("http://localhost:4000/cart/getcart", {
+        const response = await axios.get("http://13.62.225.195/api/cart/getcart", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -67,7 +67,7 @@ function AddToCart() {
     setError("");
 
     try {
-      await axios.delete(`http://localhost:4000/cart/delete/${itemId}`, {
+      await axios.delete(`http://13.62.225.195/api/cart/delete/${itemId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -105,7 +105,7 @@ function AddToCart() {
       setError("");
 
       await axios.patch(
-        "http://localhost:4000/cart/update",
+        "http://13.62.225.195/api/cart/update",
         {
           itemId,
           quantity: newQty,

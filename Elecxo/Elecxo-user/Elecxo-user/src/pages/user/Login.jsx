@@ -39,7 +39,7 @@ function Login() {
       setLoading(true);
 
       const response = await axios.post(
-        "http://localhost:4000/auth/login",
+        "http://13.62.225.195/api/auth/login",
         { email, password }
       );
 

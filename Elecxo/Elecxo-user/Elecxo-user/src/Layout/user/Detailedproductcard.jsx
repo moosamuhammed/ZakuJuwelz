@@ -22,7 +22,7 @@ function ProductDetail() {
 
       // ✅ matches your backend: getproductbyid
       const res = await axios.get(
-        `http://localhost:4000/product/getproduct/${id}`
+        `http://13.62.225.195/api/product/getproduct/${id}`
       );
 
       if (!res.data?.success || !res.data.product) {
@@ -45,7 +45,7 @@ function ProductDetail() {
     try {
       setAdding(true);
       await axios.post(
-        "http://localhost:4000/cart/addtocart",
+        "http://13.62.225.195/api/cart/addtocart",
         {
           productId: product._id,
           quantity: qty,

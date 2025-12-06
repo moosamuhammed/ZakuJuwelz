@@ -5,7 +5,7 @@ import { useOutletContext, useNavigate } from "react-router-dom";
 import axios from "axios";
 import AlertBox from "../components/Alertbox";
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:4000";
+const API_BASE_URL = import.meta.env.VITE_API_URL || "http://13.62.225.195/api";
 
 function Checkout({ taxRate = 0.18, codFee = 50 }) {
   const outletContext = useOutletContext() || {};

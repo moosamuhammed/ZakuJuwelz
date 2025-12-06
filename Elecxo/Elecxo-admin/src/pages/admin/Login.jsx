@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const API_URL = "http://localhost:4000/admin/login"; 
-// 🔼 CHANGE THIS if your backend route is different,
-// e.g. "http://localhost:5000/admin/login" or "/api/admin/login"
+const API_URL = "http://13.62.225.195/api/admin/login"; 
+
 
 const AdminLogin = () => {
   const navigate = useNavigate();

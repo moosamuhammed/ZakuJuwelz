@@ -16,7 +16,7 @@ function CategoryManagement() {
     try {
       setLoading(true);
       setError("");
-      const res = await axios.get("http://localhost:4000/product/getcategory");
+      const res = await axios.get("http://13.62.225.195/api/product/getcategory");
       console.log("Fetched categories:", res.data);
       setCategories(res.data.category || []);
     } catch (err) {
@@ -50,7 +50,7 @@ function CategoryManagement() {
       console.log("Deleting category with ID:", categoryId);
 
       const res = await axios.delete(
-        `http://localhost:4000/product/deletecategory/${categoryId}`
+        `http://13.62.225.195/api/product/deletecategory/${categoryId}`
       );
 
       console.log("Delete response:", res.data);

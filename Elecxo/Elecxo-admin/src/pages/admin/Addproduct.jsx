@@ -37,7 +37,7 @@ function AddProduct() {
 
     try {
       const response = await axios.post(
-        "http://localhost:4000/product/add",
+        "http://13.62.225.195/api/product/add",
         formData,
         {
           headers: { "Content-Type": "multipart/form-data" },
@@ -60,7 +60,7 @@ function AddProduct() {
   const fetchCategories = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:4000/product/getcategory"
+        "http://13.62.225.195/api/product/getcategory"
       );
       console.log("Fetched Categories:", response.data);
       setCategoryList(response.data.category);

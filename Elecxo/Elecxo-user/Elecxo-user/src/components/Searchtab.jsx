@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 // If you're using react-router:
 import { useNavigate } from "react-router-dom";
 
-const API_BASE_URL = "http://localhost:4000"; // change if needed
+const API_BASE_URL = "http://13.62.225.195/api"; // change if needed
 
 export default function SearchBar() {
   const [query, setQuery] = useState("");

@@ -10,7 +10,7 @@ function Categories() {
   const fetchCategory = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:4000/product/getcategory"
+        "http://13.62.225.195/api/product/getcategory"
       );
       setCategory(response.data.category || []);
     } catch (error) {

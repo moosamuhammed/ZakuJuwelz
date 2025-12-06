@@ -7,7 +7,7 @@ function useQuery() {
 }
 
 // 🔑 CHANGE THIS PORT to your actual backend port
-const API_BASE_URL = "http://localhost:4000";
+const API_BASE_URL = "http://13.62.225.195/api";
 
 const ProductsPage = () => {
   const query = useQuery();

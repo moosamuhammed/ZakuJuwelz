@@ -11,7 +11,7 @@ function ProductCard() {
   // Fetch products from API
   const fetchProducts = async () => {
     try {
-      const response = await axios.get('http://localhost:4000/product/getproduct');
+      const response = await axios.get('http://13.62.225.195/api/product/getproduct');
       setProducts(response.data.product || []);
     } catch (error) {
       console.error('Error fetching products:', error);
@@ -34,7 +34,7 @@ function ProductCard() {
       console.log('Calling /cart/addtocart for', productId);
 
       const response = await axios.post(
-        'http://localhost:4000/cart/addtocart',
+        'http://13.62.225.195/api/cart/addtocart',
         { productId, quantity: 1 },
         {
           headers: {

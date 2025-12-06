@@ -26,7 +26,7 @@ function AdminStockPage() {
 
       
       const res = await axios.get(
-        "http://localhost:4000/product/all" 
+        "http://13.62.225.195/api/product/all" 
       );
 
       if (res.data && res.data.success === false) {

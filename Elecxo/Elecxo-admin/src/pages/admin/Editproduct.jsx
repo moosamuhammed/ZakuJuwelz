@@ -38,7 +38,7 @@ function Editproduct() {
 
     try {
       const response = await axios.put(
-        `http://localhost:4000/product/editproduct/${id}`,
+        `http://13.62.225.195/api/product/editproduct/${id}`,
         formData,
         { headers: { "Content-Type": "multipart/form-data" } }
       );
@@ -51,7 +51,7 @@ function Editproduct() {
 
   const fetchCategories = async () => {
     try {
-      const response = await axios.get("http://localhost:4000/product/getcategory");
+      const response = await axios.get("http://13.62.225.195/api/product/getcategory");
       setCategoryList(response.data.category);
     } catch (error) {
       console.error("Error fetching categories:", error);
@@ -60,7 +60,7 @@ function Editproduct() {
 
   const fetchProduct = async () => {
     try {
-      const res = await axios.get(`http://localhost:4000/product/getproduct/${id}`);
+      const res = await axios.get(`http://13.62.225.195/api/product/getproduct/${id}`);
       const p = res.data.product;
 
       setName(p.name || "");

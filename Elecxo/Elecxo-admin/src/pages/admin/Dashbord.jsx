@@ -10,7 +10,7 @@ function Dashbord() {
   // Fetch products from backend
   const fetchProducts = async () => {
     try {
-      const response = await axios.get('http://localhost:4000/product/getproduct');
+      const response = await axios.get('http://13.62.225.195/api/product/getproduct');
       setProducts(response.data?.product || []);
     } catch (error) {
       console.error('Error fetching products:', error);
@@ -26,7 +26,7 @@ function Dashbord() {
     console.log('Deleting product with id:', id);
 
     try {
-      await axios.delete(`http://localhost:4000/product/deleteproduct/${id}`, {
+      await axios.delete(`http://13.62.225.195/api/product/deleteproduct/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

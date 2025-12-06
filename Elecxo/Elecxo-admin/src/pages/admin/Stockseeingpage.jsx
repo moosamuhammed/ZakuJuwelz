@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-const API_BASE_URL = "http://localhost:4000/stock";
+const API_BASE_URL = "http://13.62.225.195/api/stock";
 
 export default function Stocks() {
   const [products, setProducts] = useState([]);

@@ -27,7 +27,7 @@ function CategoryPage() {
       console.log("Category ID from URL:", id);
 
       const res = await axios.get(
-        `http://localhost:4000/product/productbycategory/${id}`
+        `http://13.62.225.195/api/product/productbycategory/${id}`
       );
 
       if (res.data && res.data.success === false) {
