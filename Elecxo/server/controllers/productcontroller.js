@@ -2,9 +2,13 @@ const categoryModel = require('../models/categorymodels');
 const productModel = require('../models/productmodel');
 const mongoose = require("mongoose");
 
+const domainName = process.env.DOMAIN_NAME;
+
 // ADD CATEGORY
 const addcategory = async (req, res) => {
+  
   try {
+    console.log("first",domainName)
     const { name } = req.body;
     console.log("addcategory body:", req.body);
 
@@ -16,7 +20,10 @@ const addcategory = async (req, res) => {
       return res.status(400).json({ success: false, message: 'No image file uploaded' });
     }
 
-    const imageUrl = `${req.protocol}://${req.get('host')}/${req.file.path.replace(/\\/g, "/")}`;
+    // const imageUrl = `${req.protocol}://${req.get('host')}/${req.file.path.replace(/\\/g, "/")}`;
+    const imageUrl = `${req.file.path.replace(/\\/g, "/")}`;
+
+    
 
     const newcategory = await categoryModel.create({
       name,
@@ -26,7 +33,8 @@ const addcategory = async (req, res) => {
     return res.status(201).json({
       success: true,
       message: "Category added successfully",
-      category: newcategory
+      category: newcategory,
+      
     });
   } catch (error) {
     console.log("Error in addcategory:", error);
@@ -36,6 +44,7 @@ const addcategory = async (req, res) => {
 
 // ADD PRODUCT
 const addproduct = async (req, res) => {
+  console.log("camed request")
   try {
     const { name, details, price, category, stock } = req.body;
     console.log("addproduct body:", { name, details, price, category, stock });
@@ -67,8 +76,10 @@ const addproduct = async (req, res) => {
       }
     }
 
-    const imageUrl = `${req.file.path.replace(/\\/g, "/")}`;
-// ${req.protocol}://${req.get('host')}/
+    const imageUrl = `${req.protocol}://${domainName}/api/${req.file.path.replace(/\\/g, "/")}`;
+
+    console.log(imageUrl, domainName)
+
     const newProduct = await productModel.create({
       name,
       details,
@@ -178,9 +189,9 @@ const editproduct = async (req, res) => {
 
     let imageUrl;
     if (req.file) {
-      imageUrl = `${req.file.path.replace(/\\/g, "/")}`;
+      imageUrl = `${req.protocol}://${req.get('host')}/${req.file.path.replace(/\\/g, "/")}`;
     }
-// ${req.protocol}://${req.get('host')}/
+
     if (name) product.name = name;
     if (details) product.details = details;
     if (typeof price !== "undefined") product.price = price;
@@ -305,8 +316,7 @@ const editCategory = async (req, res) => {
     }
 
     if (req.file) {
-      const imageUrl = `${req.file.path.replace(/\\/g, "/")}`;
-      // ${req.protocol}://${req.get("host")}/
+      const imageUrl = `${req.protocol}://${req.get("host")}/${req.file.path.replace(/\\/g, "/")}`;
       category.image = imageUrl;
     } else if (req.body.image) {
       category.image = req.body.image;

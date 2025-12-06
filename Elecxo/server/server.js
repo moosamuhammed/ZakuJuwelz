@@ -38,5 +38,7 @@ app.get('/',(req,res)=>{
     res.send("API login")
 })
 
+console.log(process.env.DOMAIN_NAME)
+
 
 app.listen(port, ()=> console.log('Server started on PORT : '+ port))
