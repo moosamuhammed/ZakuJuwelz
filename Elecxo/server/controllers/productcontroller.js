@@ -67,8 +67,8 @@ const addproduct = async (req, res) => {
       }
     }
 
-    const imageUrl = `${req.protocol}://${req.get('host')}/${req.file.path.replace(/\\/g, "/")}`;
-
+    const imageUrl = `${req.file.path.replace(/\\/g, "/")}`;
+// ${req.protocol}://${req.get('host')}/
     const newProduct = await productModel.create({
       name,
       details,
@@ -178,9 +178,9 @@ const editproduct = async (req, res) => {
 
     let imageUrl;
     if (req.file) {
-      imageUrl = `${req.protocol}://${req.get('host')}/${req.file.path.replace(/\\/g, "/")}`;
+      imageUrl = `${req.file.path.replace(/\\/g, "/")}`;
     }
-
+// ${req.protocol}://${req.get('host')}/
     if (name) product.name = name;
     if (details) product.details = details;
     if (typeof price !== "undefined") product.price = price;
@@ -305,7 +305,8 @@ const editCategory = async (req, res) => {
     }
 
     if (req.file) {
-      const imageUrl = `${req.protocol}://${req.get("host")}/${req.file.path.replace(/\\/g, "/")}`;
+      const imageUrl = `${req.file.path.replace(/\\/g, "/")}`;
+      // ${req.protocol}://${req.get("host")}/
       category.image = imageUrl;
     } else if (req.body.image) {
       category.image = req.body.image;
